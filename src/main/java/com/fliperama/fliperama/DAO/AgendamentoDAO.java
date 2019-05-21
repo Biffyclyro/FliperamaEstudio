@@ -2,6 +2,8 @@ package com.fliperama.fliperama.DAO;
 
 import com.fliperama.fliperama.model.Agendamento;
 
+import com.fliperama.fliperama.model.Usuario;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -39,10 +41,13 @@ public class AgendamentoDAO {
 
             Statement stmt = conn.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM agendamento");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM agendamento, usuario " +
+                    "WHERE agendamento.id_usuario = usuario.id_usuario");
 
             while (rs.next()){
-                agendamentos.add(new Agendamento(rs.getTime(),rs.getString("")))
+
+                agendamentos.add(new Agendamento( rs.getTimestamp("data_agendamento").toLocalDateTime(),
+                        new Usuario(rs.getString("nome_usuario"),rs.getString("tipo_usuario") ) ) );
             }
 
         }catch (Exception e){e.printStackTrace();}

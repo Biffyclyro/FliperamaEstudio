@@ -47,9 +47,7 @@
             <li class="nav-item active btn-primary">
                 <a class="nav-link" href="agendamento">Agendamento<span class="sr-only">(Página atual)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="publicar">Publicar</a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="login">Login</a>
             </li>

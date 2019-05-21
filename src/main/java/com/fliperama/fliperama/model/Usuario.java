@@ -12,6 +12,11 @@ public class Usuario {
 
     }
 
+    public Usuario(String nome, Tipo tipo) {
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
     public String getSenha() {
         return senha;
     }
